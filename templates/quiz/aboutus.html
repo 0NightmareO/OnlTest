@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>About Us</title>
+
+  <style media="screen">
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .jumbotron {
+      margin-top: 0;
+      margin-bottom: 0;
+      background-color: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .jumbotron h3 {
+      margin-bottom: 0;
+      color: rgb(243, 119, 119);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .jumbotron p {
+      padding:10px;
+      font-size: 18px;
+    }
+
+    .btn-primary {
+      padding:10px;
+      border: 1px solid rgb(243, 119, 119);
+      color: rgb(243, 119, 119);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: rgb(243, 119, 119);
+      border-color: rgb(243, 119, 119);
+      color:#fff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  {% include "quiz/navbar.html" %}
+  <div class="jumbotron">
+    <h3>Về chúng tôi</h3>
+    <div class="container">
+      <p class="lead">Chúng tôi cung cấp một nền tảng cho sinh viên để thực hành các câu hỏi. Giáo viên có thể thêm các khóa học / bài kiểm tra vào hệ thống và các câu hỏi vào các khóa học đó.</p>
+      <hr class="my-4">
+      <p>Khám phá trang web của chúng tôi.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/" role="button">Trang chủ</a>
+      </p>
+    </div>
+  </div>
+
+  {% include "quiz/footer.html" %}
+</body>
+
+</html>

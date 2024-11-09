@@ -1,0 +1,42 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+      .custom-btn {
+        background-color: rgb(243, 119, 119);
+        color: #fff;
+        border-radius: 6px;
+  
+    }
+    .custom-btn:hover {
+        background: transparent;
+        border: 2px solid rgb(243, 119, 119);
+        color: rgb(243, 119, 119);
+    }
+  </style>
+</head>
+<h3 style="text-align:center">Ghi chú giáo viên</h3>
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="salary">Ghi chú</label>
+      {% render_field teacherSalary.salary class="form-control" placeholder="Eng teacher" %}
+    </div>
+    
+
+    <button type="submit" class="btn custom-btn">Thêm</button>
+  </form>
+<br><br><br>
+{% endblock content %}

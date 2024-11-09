@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .custom-jumbotron {
+            margin-top: 100px; 
+            background-color: #191919; 
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            color: rgb(243, 119, 119);
+        }
+        
+       .custom-btn {
+        border-radius: 20px;
+        padding: 10px 20px;
+        background: transparent;
+        border: 2px solid rgb(243, 119, 119);
+        color: rgb(243, 119, 119);
+        
+    }
+
+    .custom-btn:hover {
+        background-color: rgb(243, 119, 119);
+        color: #fff;
+        border-radius: 20px;
+        padding: 10px 20px;
+        }
+        .form-control {
+          border: 2px solid rgb(243, 119, 119);
+          border-radius: 20px;
+          transition: border-color 0.25s;
+      }
+        form {
+            margin: 50px;
+        }
+
+        .form-control::placeholder {
+            color: #ccc;
+        }
+        .login-link {
+          color: rgb(243, 119, 119);
+        }
+        .login-link:hover {
+          color: #fff;
+          }
+        .login-register p{
+          margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% include "quiz/navbar.html" %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="jumbotron custom-jumbotron">
+                    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h1 class="text-center">Đăng ký</h1>
+                        <p class="text-muted text-center">Vui lòng nhập thông tin đăng nhập và mật khẩu!</p>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="username">Tên người dùng</label>
+                                {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="Username" %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Mật khẩu</label>
+                                {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="Password" %}
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="first_name">Tên</label>
+                                {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="last_name">Họ</label>
+                                {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="mobile">Số điện thoại</label>
+                                {% render_field teacherForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="address">Địa chỉ</label>
+                                {% render_field teacherForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="profile_pic">Ảnh cá nhân</label>
+                                {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" %}
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="col-md-6">
+                              <button type="submit" class="btn custom-btn">Đăng ký</button>
+                          </div>
+                          <div class="col-md-6 login-register">
+                              <p>Đã có tài khoản? <a href="teacherlogin" class="login-link">Đăng nhập</a></p>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "quiz/footer.html" %}
+</body>
+</html>
+
+{% comment %} {% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      .custom-jumbotron {
+        margin-top:70px; 
+        background-color: rgb(251, 209, 209); 
+        border-radius: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+      form {
+        margin: 50px;
+      }
+      .custom-btn {
+        background-color: rgb(243, 119, 119);
+        color: #fff;
+      }
+      .custom-btn:hover {
+        background: transparent;
+        border: 2px solid rgb(243, 119, 119);
+        border-radius: 6px;
+        color: rgb(243, 119, 119);
+      }
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+ 
+
+
+<br><br><br>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="jumbotron custom-jumbotron">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="username">Tên người dùng</label>
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Mật khẩu</label>
+        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="first_name">Tên</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="last_name">Họ</label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mobile">Số điện thoại</label>
+          {% render_field teacherForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="address">Địa chỉ</label>
+          {% render_field teacherForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="profile_pic">Ảnh cá nhân</label>
+          {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+        </div>
+        
+      </div>
+    
+
+      <button type="submit" class="btn custom-btn">Đăng kí</button>
+  </form>
+</div>
+
+<br><br>
+{% include "quiz/footer.html" %}
+  </body>
+</html> {% endcomment %}

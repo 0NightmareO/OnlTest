@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+      }
+      .home-content {
+        text-align: center;
+        margin-right: 15px;
+      }
+      .home-content h1 {
+        font-size: 50px;
+        font-weight: 600;
+      }
+      .custom-btn {
+        background-color: rgb(243, 119, 119);
+        color: #fff;
+        border-radius: 6px;
+      }
+      .custom-btn:hover {
+        background: transparent;
+        border: 2px solid rgb(243, 119, 119);
+        color: rgb(243, 119, 119);
+      }
+      .custom-btn1 {
+        background: transparent;
+        border: 2px solid rgb(243, 119, 119);
+        border-radius: 6px;
+        color: rgb(243, 119, 119);
+      }
+      .custom-btn1:hover {
+        background-color: rgb(243, 119, 119);
+        color: #fff;
+      }
+      bgr1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      } 
+      .bgr1 img {
+        position: absolute;
+        bottom: 70px;
+        width: 800px;
+        height: 800px;
+        opacity: 0;
+    animation: human 1s ease forwards;
+    animation-delay: 2s;
+      }
+      @keyframes human {
+        0% {
+            transform:translate(300, -300px) scale(0);
+            opacity: 0;
+    
+        }
+        100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+        }
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+
+    <div class="container">
+      <div class="home-content">
+        <h1>Xin Chào!</h1>
+        <p>Chào mừng đến với <strong>Online</strong> <b>Test</b></p>
+        <p>Bạn có thể truy cập các tính năng khác nhau sau khi đăng nhập.</p>
+        <p class="lead">
+          <a class="btn custom-btn" href="teachersignup">Tạo tài khoản</a>
+          <a class="btn custom-btn1" href="teacherlogin">Đăng nhập</a>
+        </p>
+      </div>
+      <div class="bgr1">
+        <img src="{% static 'image/back2.png' %}" >
+        <img src="{% static 'image/teach.png' %}" >
+      </div>
+    </div>
+
+    {% include "quiz/footer.html" %}
+  </body>
+</html>
+

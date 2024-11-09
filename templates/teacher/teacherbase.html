@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+
+    <style media="screen">
+      a:link {
+        text-decoration: none;
+      }
+
+      body {
+        
+        margin: 0;
+        padding: 0;
+        height:100%;
+        background: rgb(220, 220, 220);
+        font-family: "Gill Sans", sans-serif;
+      }
+
+      header {
+        position: fixed;
+        background: #fff;
+        padding: 15px;
+        width: 100%;
+        
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 99;
+      }
+
+      strong {
+        color: #f37777;
+      }
+
+      .left_area h3 {
+        color: #000;
+        margin: 0px;
+        font-size: 22px;
+        font-weight: 500px;
+      }
+
+      .left_area span {
+        color: #f37777;
+      }
+
+      .logout_btn {
+        padding: 10px 20px;
+        background: #f37777;
+        text-decoration: none;
+        float: right;
+        margin-top: -30px;
+        margin-right: 40px;
+        border-radius: 25px;
+        font-size: 15px;
+        font-weight: 600px;
+        color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .logout_btn:hover {
+        background: #fff;
+        box-shadow: inset 0 0 0 2px #f37777;
+        color: #f37777;
+      }
+
+      .sidebar {
+        background: #f37777;
+        margin-top: 70px;
+        padding-top: 30px;
+        position: fixed;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        transition: 0.5s;
+        transition-property: left;
+      }
+
+      .sidebar .profile_image {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        margin-bottom: 10px;
+      }
+
+      .sidebar h4 {
+        color: #fff;
+        margin-top: 0;
+      }
+
+      .sidebar a {
+        color: #fff;
+        display: block;
+        width: 100%;
+        font-size: 20px;
+        line-height: 60px;
+        text-decoration: none;
+        padding-left: 40px;
+        box-sizing: border-box;
+        transition: 0.5s;
+      }
+
+      .sidebar a:hover {
+        background: #fff;
+        color: #f37777;
+      }
+
+      .sidebar i {
+        padding-right: 10px;
+      }
+
+      label #sidebar_btn {
+        z-index: 1;
+        color: #f37777;
+        position: fixed;
+        cursor: pointer;
+        left: 300px;
+        font-size: 20px;
+        margin: 5px 0;
+        transition: 0.5s;
+        transition-property: color;
+      }
+
+      label #sidebar_btn:hover {
+        color: #fff;
+      }
+
+      #check:checked ~ .sidebar {
+        left: -190px;
+      }
+
+      #check:checked ~ .sidebar a span {
+        display: none;
+      }
+
+      #check:checked ~ .sidebar a {
+        font-size: 20px;
+        margin-left: 170px;
+        width: 80px;
+      }
+      .content .btn-xs {
+        padding: 5px 10px; 
+        background-color: #F37777;
+        border-color: #F37777;
+     }
+       .container .btn-xs:hover {
+         background-color: #Fff;
+         border-color: #F37777;
+         {% comment %} box-shadow: inset 0 0 0 2px #F37777; {% endcomment %}
+         color:#F37777;
+       }
+      .panel-title {
+        font-size: 20px;
+      }
+      th {
+        font-size: 15px;
+    }
+      .content .panel-primary>.panel-heading {
+        color: #fff;
+        background-color: #F37777;
+        border-color: #F37777;
+      }
+      .content {
+        flex: 1;
+        margin-left: 250px;
+        background: rgb(220, 220, 220);
+        min-height: 100vh;
+        background-size: cover;
+        transition: 0.5s;
+      }
+
+      #check:checked ~ .content {
+        margin-left: 60px;
+      }
+
+      #check {
+        display: none;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <input type="checkbox" id="check" />
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i
+          style="left: 200px; margin-top: 17px"
+          class="fas fa-bars"
+          id="sidebar_btn"
+        ></i>
+      </label>
+      <div class="left_area">
+        <h3 class="logo"><strong>Online</strong><b>test</b></h3>
+      </div>
+      <div class="right_area">
+        <a href="/logout" class="logout_btn">Đăng xuất</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <img src="{% static "image/teacher.png" %}" class="profile_image"
+        alt="">
+        <h4>{{request.user.first_name}}</h4>
+        <h6 style="color: rgb(255, 255, 255)">( Giáo viên )</h6>
+      </center>
+
+      <a href="/teacher/teacher-dashboard"
+        ><i class="fas fa-tachometer-alt"></i><span>Bảng điều khiển</span></a
+      >
+      <a href="/teacher/teacher-exam"
+        ><i class="fas fa-book"></i><span>Bài kiểm tra</span></a
+      >
+      <a href="/teacher/teacher-student"
+        ><i class="fas fa-user-graduate"></i><span>Học sinh</span></a
+      >
+      <a href="/teacher/teacher-question"
+        ><i class="fas fa-question-circle"></i><span>Câu hỏi</span></a
+      >
+      {% comment %}
+      <a href="teacher/teacher-course"
+        ><i class="fas fa-book"></i><span>Courses</span></a
+      >
+      {% endcomment %}
+    </div>
+    <!--sidebar end-->
+
+    <!--content start-->
+    <div class="content">
+      <br /><br /><br /><br /><br />
+      {% block content %} {% endblock content %}
+
+      <br /><br /><br />
+      {% include "quiz/footer.html" %}
+    </div>
+    <!--content end-->
+  </body>
+</html>

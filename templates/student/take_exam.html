@@ -1,0 +1,93 @@
+{% extends 'student/studentbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style>
+    
+    .jumbotron {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .text-info {
+        color: #F37777;
+    }
+    .card-title {
+        color: #F37777;
+    }
+    .card {
+      border: 1px solid #F37777;
+      border-radius: 10px;
+      padding:20px;
+    }
+
+    .card-body, .card-footer {
+      color: #000;
+    }
+    /* CSS cho nút */
+    .btn-info {
+        
+      background-color: #F37777;
+      border-color: #F37777;
+      font-size: 20px;
+    }
+
+    .btn-info:hover {
+      background-color: #Ffff;
+      border-color: #F37777;
+      color:#F37777;
+    }
+  </style>
+
+</head>
+<br><br>
+<div class="container my-4">
+    <div class="jumbotron">
+
+	      <h3 class="text-info text-center">Trước khi bạn vào kiểm tra, đây là luật lệ!!</h3>
+
+        <div class="row">
+
+            <div class="card border-info mx-4 my-4">
+                <div class="card-body text-info">
+
+                    <h4 class="card-title">Chi tiết bài kiểm tra :</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                            <li>Tên bài kiểm tra : {{course.course_name}}</li>
+                            <li>Số lượng câu hỏi : {{total_questions}}</li>
+                            <li>Điểm cao nhất : {{total_marks}}</li>
+                        </ul>
+                    <p></p>
+
+
+
+                    <h4 class="card-title">Luật :</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                            <li>Tất cả các câu hỏi đều là câu hỏi trắc nghiệm.</li>
+                            <li>Chỉ có một lựa chọn là đúng.</li>
+                            <li>Mỗi câu hỏi mang có thể số điểm khác nhau.
+                            </li>
+                
+                            <li>Hãy cố gắng trả lời nhanh nhất có thể.</li>
+                            <li>Nếu bạn nhấn làm mới hoặc quay lại trang trước, sẽ có một câu hỏi mới dành cho bạn và câu hỏi bạn đã trả lời sẽ được tính là đã thử.</li>
+                            <li>Các câu hỏi được hiển thị ngẫu nhiên cho mọi học sinh.</li>
+                            <li>Bạn sẽ được thông báo điểm ngay khi gửi đáp án.</li>
+                        </ul>
+                    <p></p>
+                    <a href="{% url 'start-exam' course.id  %}" class="btn btn-info">Hãy bắt đầu nào!</a>
+                </div>  
+                <div class="card-footer">Chúc may mắn :)</div>  
+            </div>  
+        </div>  
+
+    </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

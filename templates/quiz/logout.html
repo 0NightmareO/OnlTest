@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .image-container {
+        overflow: hidden; 
+        position: relative; /* Để có thể định vị văn bản */
+      }
+
+      img {
+        width: 1000px; 
+        height: 1000px; 
+        display: block; 
+      }
+
+      .logout-text {
+        position: absolute;
+        top: 30%;
+        left: 300px; 
+        transform: translateY(-30%); 
+        color: rgb(243, 119, 119);
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+    <div class="image-container">
+      <img src="{% static "image/logout.png" %}">
+      <div class="logout-text">Bạn đã đăng xuất thành công!</div>
+    </div>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br>
+    {% include "quiz/footer.html" %}
+  </body>
+</html>
